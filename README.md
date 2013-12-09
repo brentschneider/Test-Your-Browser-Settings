@@ -3,4 +3,4 @@
 
 
 ### Demo:
-Run a browser test on your [computer] (artfulpersuasion.net/browser.html)
+Run a browser test on your [computer] (http://artfulpersuasion.net/browser.html)
