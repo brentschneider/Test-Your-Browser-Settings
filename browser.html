@@ -1,12 +1,23 @@
 <html>
 <head>
-
-<title>System status</title>
+<title>Browser settings</title>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 <!-- GET version of Java -->
 <script src="http://www.java.com/js/deployJava.js"></script>
+<!-- GET version of Flash player -->
 <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
+
 <script type="text/javascript">
+
+// To do:
+// Cross platform testing.
+// 
+// Adding media plugin dections
+//	Add Silverlight plugin dection
+//	Quicktime player 
+//	Realplayer pluging 
+// 
 
 var nVer = navigator.appVersion;
 var nAgt = navigator.userAgent;
@@ -18,27 +29,27 @@ var cookiesx = navigator.cookieEnabled;
 var javaEnabledx = navigator.javaEnabled();
 var javaVersionx = deployJava.getJREs();
 var flashInstalled = ((typeof navigator.plugins != "undefined" && typeof navigator.plugins["Shockwave Flash"] == "object") || (window.ActiveXObject && (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) != false));
-var playerVR = swfobject.getFlashPlayerVersion().major; 
+var playerVR = swfobject.getFlashPlayerVersion().major;
 
-	// In Opera, the true version is after "Opera" or after "Version"
+// In Opera, the true version is after "Opera" or after "Version"
 	if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
 	 browserName = "Opera";
 	 fullVersion = nAgt.substring(verOffset+6);
 	 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
 	   fullVersion = nAgt.substring(verOffset+8);
 	}
-	// In MSIE, the true version is after "MSIE" in userAgent
+// In MSIE, the true version is after "MSIE" in userAgent
 	else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
 	 browserName = "Microsoft Internet Explorer";
 	 fullVersion = nAgt.substring(verOffset+5);
 	}
-	// In Chrome, the true version is after "Chrome" 
+// In Chrome, the true version is after "Chrome" 
 	else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
 	 browserName = "Chrome";
 	 fullVersion = nAgt.substring(verOffset+7);
 	 javaVersionx = 'Does Not Support'
 	}
-	// In Safari, the true version is after "Safari" or after "Version" 
+// In Safari, the true version is after "Safari" or after "Version" 
 	else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
 	 browserName = "Safari";
 	 fullVersion = nAgt.substring(verOffset+7);
@@ -46,13 +57,11 @@ var playerVR = swfobject.getFlashPlayerVersion().major;
 	 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
 	   fullVersion = nAgt.substring(verOffset+8);
 	}
-
-	// In Firefox, the true version is after "Firefox" 
+// In Firefox, the true version is after "Firefox" 
 	else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
 	 browserName = "Firefox";
 	 fullVersion = nAgt.substring(verOffset+8);
 	}
-
 // In most other browsers, "name/version" is at the end of userAgent 
 else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
           (verOffset=nAgt.lastIndexOf('/')) ) 
@@ -68,31 +77,34 @@ if ((ix=fullVersion.indexOf(";"))!=-1)
    fullVersion=fullVersion.substring(0,ix);
 if ((ix=fullVersion.indexOf(" "))!=-1)
    fullVersion=fullVersion.substring(0,ix);
-
 majorVersion = parseInt(''+fullVersion,10);
 if (isNaN(majorVersion)) {
  fullVersion  = ''+parseFloat(navigator.appVersion); 
  majorVersion = parseInt(navigator.appVersion,10);
 }
 
-
 document.write(''
- +'Your web browser is: '+browserName+' - '
- +'version: '+majorVersion+'<br>'
- +'Full build number: '+fullVersion+'<br>'
- +'<br>'
- +'navigator.appName = '+navigator.appName+'<br>'
- +'navigator.userAgent = '+navigator.userAgent+'<br>'
++'<div style="margin-left:24px;">'	
+  +'<h2>Your browser settings:</h2>'
+  +'To manually determine your browser version, open the browser and select Help -> About from the toolbar.'+'<br>'
   +'<br>'
- +'Cookies Enabled = '+cookiesx+'<br>'
- +'<br>'
- +'Java Enabled = '+javaEnabledx+'<br>'
- +'Java Version = '+javaVersionx+'<br>'
- +'<br>'
- +'Flash installed ='+flashInstalled+'<br>'
- +'Flash version ='+playerVR+'<br>'
-
-
+  +'Your web browser is: '+browserName+' version: '+majorVersion+'<br>'
+  +'The build number: '+fullVersion+'<br>'
+  +'<br>'
+  +'navigator.appName = '+navigator.appName+'<br>'
+  +'navigator.userAgent = '+navigator.userAgent+'<br>'
+  +'<br>'
+  +'<strong>A cookie is a small piece of text stored on a user\'s computer by a web browser.</strong> <a href="http://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">wikipedia</a><br>'
+  +'Cookies Enabled = '+cookiesx+'<br>'
+  +'<br>'
+  +'<strong>Java is free software by the SunMicroSystems Corporation, upgrading to the latest Java version improves the security of your system, as older versions do not include the latest security updates..</strong><br>'
+  +'Java Enabled = '+javaEnabledx+'<br>'
+  +'Java Version = '+javaVersionx+'<br>'
+  +'<br>'
+  +'<strong>Adobe Flash Player is a cross-platform, browser-based application for delivering high-impact, rich Web content</strong>. <a href="http://get.adobe.com/flashplayer/" target="_blank">adobe</a><br>'
+  +'Flash installed ='+flashInstalled+'<br>'
+  +'Flash version ='+playerVR+'<br>'
++'</div>'
 );
 
 </script>
@@ -100,9 +112,6 @@ document.write(''
 </head>
 <body>
 <br>
-<div>My browser settings...</div>
-
-
-
+<div style="margin-left:24px;">View browser settings project on <a href="https://github.com/brentschneider/Test-Your-Browser-Settings">Github</a></div>
 </body>
 </html>
