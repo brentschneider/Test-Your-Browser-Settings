@@ -1,7 +1,6 @@
 # Detect browser settings 
 
 
-
 ###Embeded Frameworks
 
  - Bootstrap [framework](http://www.bootstrapcdn.com/)
