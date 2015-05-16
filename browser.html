@@ -11,6 +11,7 @@
 <script type="text/javascript">
 
 // To do:
+
 // Cross platform testing.
 // 
 // Adding media plugin dections
@@ -30,6 +31,9 @@ var javaEnabledx = navigator.javaEnabled();
 var javaVersionx = deployJava.getJREs();
 var flashInstalled = ((typeof navigator.plugins != "undefined" && typeof navigator.plugins["Shockwave Flash"] == "object") || (window.ActiveXObject && (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) != false));
 var playerVR = swfobject.getFlashPlayerVersion().major;
+
+// Width and Height
+
 
 // In Opera, the true version is after "Opera" or after "Version"
 	if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
@@ -83,8 +87,7 @@ if (isNaN(majorVersion)) {
  majorVersion = parseInt(navigator.appVersion,10);
 }
 
-document.write(''
-+'<div style="margin-left:24px;">'	
+document.write('' + '<div style="margin-left:24px;">'	
   +'<h2>Your browser settings:</h2>'
   +'To manually determine your browser version, open the browser and select Help -> About from the toolbar.'+'<br>'
   +'<br>'
@@ -112,6 +115,22 @@ document.write(''
 </head>
 <body>
 <br>
+<div style="margin-left:24px;" id="widthheight"></div>
 <div style="margin-left:24px;">View browser settings project on <a href="https://github.com/brentschneider/Test-Your-Browser-Settings">Github</a></div>
+
+
+<script type="text/javascript">
+var ww = window.innerWidth;
+var cw = document.documentElement.clientWidth;
+var bcw = document.body.clientWidth;
+
+var wh = window.innerHeight;
+var ch = document.documentElement.clientHeight;
+var bch = document.body.clientHeight;
+
+var x = document.getElementById("widthheight");
+x.innerHTML = '<strong>Browser window width:</strong> <ul><li>Inner width: ' + ww + 'px</li><li>element width: ' + cw + 'px</li><li>body width: ' + bcw + 'px</li></ul>'
+			+ '<strong>Browser window height:</strong> <ul><li>Inner height: ' + wh + 'px</li><li>element height: ' + ch + 'px</li><li>body height: ' + bch + 'px</li></ul>';
+</script>
 </body>
 </html>
