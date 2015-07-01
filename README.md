@@ -33,4 +33,9 @@ swfobject.getFlashPlayerVersion().major;
 Run the browser tester on your [system](http://artfulpersuasion.net/browser.html)
 
 
+### Happy Browsing:
+
+[http://browsehappy.com/](http://browsehappy.com/)
+
+
 
