@@ -30,7 +30,7 @@ swfobject.getFlashPlayerVersion().major;
 
 ### Demo:
 ----------
-Run the browser tester on your [system](http://artfulpersuasion.net/browser.html)
+Run the browser tester on your [system](http://milkshakeinteractive.com/browser.html)
 
 
 ### Happy Browsing:
